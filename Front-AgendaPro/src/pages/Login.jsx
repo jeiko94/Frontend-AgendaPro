@@ -3,11 +3,13 @@ import { FaUser, FaLock } from "react-icons/fa";
 import { login } from "../services/authService";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
 
@@ -19,15 +21,15 @@ function Login() {
 
             localStorage.setItem("token", response.token);
 
-            alert("Login correcto");
+            navigate("/workspace");
 
-        } catch {
+        } catch (error) {
 
             alert("Usuario o contraseña incorrectos");
 
         }
 
-    };
+    }
 
     return (
 

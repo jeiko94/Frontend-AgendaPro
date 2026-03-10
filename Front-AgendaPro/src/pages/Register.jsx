@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import api from "../services/api";
 import "../styles/login.css";
+import { Link } from "react-router-dom";
 
 function Register() {
 
@@ -39,6 +40,10 @@ function Register() {
         <div className="login-container">
 
             <div className="login-box">
+
+                <Link to="/" className="back-btn">
+                    ← Volver al login
+                </Link>
 
                 <h2>REGISTRAR</h2>
 
