@@ -76,6 +76,10 @@ function Home() {
                 </p>
               </div>
 
+              <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+              <img class="w-full h-full object-cover" data-alt="Modern analytics and calendar interface on a laptop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3CDkGBFcfV1v6WXMHKVPrFvy3zpo5Emf1h2gqRaUeXNgtxwlkQGHNEvDGvFw1o4FHUqdBpjcsuc5zfTMHkmKZdogG9KW0gLyEtJwOvgV0BTy52uYipEB93GljsbghIiag7NuMd6sFcW7wpOE6L-lbfZYbOuXtN-gAe3DKmQk44J9EjtKnT3DxnuTwH59SxKI3JvmuidTOdg60tHVXcOfhAIq2n-TbD2Pm_DqV8nUrYNskdLJcgy_6xLUWyWKLRtHuxVp9hPiqytfA"/>
+            </div>
+
             </div>
 
           </div>
