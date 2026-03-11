@@ -79,11 +79,11 @@ function Login() {
                             Iniciar sesión
                         </button>
 
-                        <p className="login-register">
+                        <p className="login-registrar">
 
                             ¿No tienes cuenta?
 
-                            <Link to="/register">
+                            <Link to="/registrar">
                                 Registrarse
                             </Link>
 

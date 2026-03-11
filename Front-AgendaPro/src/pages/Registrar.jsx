@@ -17,7 +17,7 @@ function Register() {
 
         try {
 
-            await api.post("/Auth/register", {
+            await api.post("/Auth/registrar", {
                 nombre,
                 email,
                 password,
