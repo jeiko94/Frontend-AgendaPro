@@ -3,6 +3,7 @@ import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import api from "../services/api";
 import "../styles/login.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
 
@@ -25,6 +26,8 @@ function Register() {
             });
 
             alert("Usuario registrado correctamente");
+
+            navigate("/workspace");
 
         } catch (error) {
 
@@ -113,3 +116,5 @@ function Register() {
 }
 
 export default Register;
+
+//hola
