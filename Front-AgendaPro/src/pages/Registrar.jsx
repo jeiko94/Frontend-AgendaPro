@@ -11,6 +11,7 @@ function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [idRol, setIdRol] = useState(1);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
 
