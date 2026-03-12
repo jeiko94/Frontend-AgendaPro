@@ -23,7 +23,7 @@ function Login() {
 
             navigate("/workspace");
 
-        } catch (error) {
+        } catch {
 
             alert("Usuario o contraseña incorrectos");
 
