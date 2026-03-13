@@ -1,105 +1,124 @@
 import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
 import { login } from "../services/authService";
-import { Link } from "react-router-dom";
-import "../styles/login.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Landing/Footer";
 
 function Login() {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        e.preventDefault();
-
-        try {
+    try {
 
             const response = await login(email, password);
 
             localStorage.setItem("token", response.token);
-            
 
             navigate("/workspace");
 
-        } catch {
+    } catch {
 
-            alert("Usuario o contraseña incorrectos");
-
-        }
+      alert("Usuario o contraseña incorrectos");
 
     }
+  };
 
-    return (
+  return (
 
-        <div className="login-page">
+    <div className="min-h-screen flex flex-col bg-slate-50">
 
-            <div className="login-wrapper">
+      <Navbar />
 
-                {/* lado izquierdo */}
-                <div className="login-image">
+      {/* Contenido */}
+      <div className="flex-1 flex items-center justify-center px-4">
 
-                    <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" />
+        <div className="grid md:grid-cols-2 bg-white rounded-3xl shadow-xl overflow-hidden max-w-5xl w-full">
 
-                    <h2>Agenda Médica</h2>
+          {/* Lado izquierdo */}
+          <div className="bg-primary text-white flex flex-col items-center justify-center p-12 space-y-6">
 
-                    <p>Sistema de gestión de citas médicas</p>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
+              alt="Agenda médica"
+              className="w-32"
+            />
 
-                </div>
+            <h2 className="text-3xl font-bold">
+              AgendaPro
+            </h2>
 
-                {/* lado derecho */}
-                <div className="login-card">
+            <p className="text-white/80 text-center">
+              Sistema inteligente para gestionar tus citas médicas
+            </p>
 
-                    <h2>LOGIN</h2>
+          </div>
 
-                    <form onSubmit={handleSubmit}>
+          {/* Lado derecho */}
+          <div className="p-10">
 
-                        <div className="input-group">
-                            <FaUser />
-                            <input
-                                type="email"
-                                placeholder="Correo"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                        </div>
+            <h2 className="text-2xl font-bold mb-6 text-center">
+              Iniciar sesión
+            </h2>
 
-                        <div className="input-group">
-                            <FaLock />
-                            <input
-                                type="password"
-                                placeholder="Contraseña"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </div>
+            <form onSubmit={handleSubmit} className="space-y-5">
 
-                        <button className="login-btn">
-                            Iniciar sesión
-                        </button>
+              <div className="flex items-center border rounded-lg px-4 py-3">
+                <FaUser className="text-slate-400 mr-3" />
+                <input
+                  type="email"
+                  placeholder="Correo electrónico"
+                  className="w-full outline-none"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
 
-                        <p className="login-registrar">
+              <div className="flex items-center border rounded-lg px-4 py-3">
+                <FaLock className="text-slate-400 mr-3" />
+                <input
+                  type="password"
+                  placeholder="Contraseña"
+                  className="w-full outline-none"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
 
-                            ¿No tienes cuenta?
+              <button
+                className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
+              >
+                Iniciar sesión
+              </button>
 
-                            <Link to="/registrar">
-                                Registrarse
-                            </Link>
+              <p className="text-sm text-center text-slate-600">
+                ¿No tienes cuenta?{" "}
+                <Link
+                  to="/registrar"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  Registrarse
+                </Link>
+              </p>
 
-                        </p>
+            </form>
 
-                    </form>
-
-                </div>
-
-            </div>
+          </div>
 
         </div>
 
-    )
+      </div>
 
+      <Footer />
+
+    </div>
+
+  );
 }
 
 export default Login;

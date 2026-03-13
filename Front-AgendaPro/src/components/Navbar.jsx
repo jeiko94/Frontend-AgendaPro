@@ -12,35 +12,32 @@ function Navbar() {
             to="/"
             className="flex items-center gap-2 text-primary font-bold text-xl"
           >
-            <svg className="w-8 h-8" fill="none" viewBox="0 0 48 48">
-              <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor" />
-            </svg>
             AgendaPro
           </Link>
 
           {/* Navegación */}
           <nav className="hidden md:flex items-center gap-8">
 
-            <a
-              href="#"
+            <Link
+              to="/#inicio"
               className="text-sm font-medium hover:text-primary transition-colors"
             >
               Inicio
-            </a>
+            </Link>
 
-            <a
-              href="#beneficios"
+            <Link
+              to="/#beneficios"
               className="text-sm font-medium hover:text-primary transition-colors"
             >
               Beneficios
-            </a>
+            </Link>
 
-            <a
-              href="#especialistas"
+            <Link
+              to="/#especialistas"
               className="text-sm font-medium hover:text-primary transition-colors"
             >
               Especialistas
-            </a>
+            </Link>
 
             <Link
               to="/login"
