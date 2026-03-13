@@ -1,6 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Sidebar() {
+
+    const navigate = useNavigate();
+
+    // cerración de sesión con confirmación
+    
+    const logout = () => {
+
+        const confirmLogout = window.confirm("¿Seguro que deseas cerrar sesión?");
+
+        if (confirmLogout) {
+
+            localStorage.removeItem("token");
+
+            navigate("/");
+
+        }
+
+    };
 
     return (
 
@@ -21,6 +39,10 @@ function Sidebar() {
                 <Link to="/citas">Citas</Link>
 
             </nav>
+
+            <button className="logout-btn" onClick={logout}>
+                Cerrar sesión
+            </button>
 
         </div>
 
