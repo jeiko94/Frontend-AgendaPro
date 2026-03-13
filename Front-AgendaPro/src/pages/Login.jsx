@@ -20,6 +20,7 @@ function Login() {
             const response = await login(email, password);
 
             localStorage.setItem("token", response.token);
+            
 
             navigate("/workspace");
 
